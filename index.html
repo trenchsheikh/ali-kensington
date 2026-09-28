@@ -90,10 +90,16 @@
           <p class="eyebrow">Client experiences</p>
           <h2 id="reviews-title">See what people say about us.</h2>
         </div>
-        <p>Thoughtful, specialist support can make a complex immigration journey feel clear and manageable.</p>
+        <div class="reviews-intro">
+          <p>Thoughtful, specialist support can make a complex immigration journey feel clear and manageable.</p>
+          <div class="carousel-controls" aria-label="Review carousel controls">
+            <button class="carousel-button" type="button" data-carousel-prev aria-label="Previous review">←</button>
+            <button class="carousel-button" type="button" data-carousel-next aria-label="Next review">→</button>
+          </div>
+        </div>
       </div>
 
-      <div class="review-grid">
+      <div class="review-grid" data-review-carousel aria-roledescription="carousel" aria-label="Client reviews">
         <article class="review-card">
           <div class="stars" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></div>
           <blockquote>
@@ -140,7 +146,20 @@
           <footer><strong>Tara Na</strong><span>Long-standing client</span></footer>
         </article>
       </div>
+      <p class="carousel-status sr-only" aria-live="polite" data-carousel-status></p>
     </section>
+
+    <dialog class="review-dialog" data-review-dialog aria-labelledby="review-dialog-name">
+      <div class="review-dialog-inner">
+        <button class="review-dialog-close" type="button" data-dialog-close aria-label="Close full review">×</button>
+        <div class="stars" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></div>
+        <div class="review-dialog-copy" data-dialog-copy></div>
+        <footer>
+          <strong id="review-dialog-name" data-dialog-name></strong>
+          <span data-dialog-source></span>
+        </footer>
+      </div>
+    </dialog>
 
     <section class="consultation" id="contact">
       <div>
