@@ -21,3 +21,21 @@
 
 @media(max-width:1050px){.reviews-heading{gap:3rem}.review-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.review-card,.review-card:nth-child(4),.review-card:nth-child(5){grid-column:span 1}.review-card:last-child{grid-column:1/-1}}
 @media(max-width:760px){.reviews-heading{grid-template-columns:1fr;gap:1rem;margin-bottom:2.25rem}.reviews-heading h2{font-size:2.9rem}.reviews-heading>p{margin:0}.review-grid{grid-template-columns:1fr;gap:1rem}.review-card,.review-card:nth-child(4),.review-card:nth-child(5),.review-card:last-child{grid-column:1;padding:1.5rem}.review-card blockquote{font-size:.91rem}.stars{font-size:1rem}}
+
+.people-section{background:var(--burgundy);color:#fff;padding:clamp(4rem,7vw,7rem) clamp(1.5rem,5vw,5rem);display:grid;grid-template-columns:minmax(280px,.72fr) minmax(0,1.28fr);gap:clamp(3rem,7vw,7rem);align-items:center;overflow:hidden}
+.people-copy{max-width:560px}
+.people-copy h2{font-family:var(--serif);font-size:clamp(3rem,4.8vw,5.2rem);font-weight:400;line-height:1.02;margin:0 0 1.75rem}
+.people-copy>p:not(.eyebrow){color:rgba(255,255,255,.78);font-size:1.05rem;line-height:1.75;margin-bottom:1.5rem}
+.people-copy .text-link{color:#fff;border-bottom:1px solid rgba(255,255,255,.45);padding-bottom:.25rem}
+.people-gallery{display:grid;grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);grid-template-rows:repeat(2,minmax(190px,1fr));gap:1rem;min-height:620px}
+.people-photo{margin:0;overflow:hidden;background:#d8cec3;position:relative}
+.people-photo-tall{grid-row:1/-1}
+.people-photo img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(.82) contrast(.97);transition:transform .5s ease}
+.people-photo-tall img{object-position:center}
+.people-photo:nth-child(2) img{object-position:center 35%}
+.people-photo:nth-child(3) img{object-position:center 45%}
+.people-photo:hover img{transform:scale(1.015)}
+
+@media(max-width:1050px){.people-section{grid-template-columns:1fr;gap:3rem}.people-copy{max-width:720px}.people-gallery{min-height:560px}}
+@media(max-width:760px){.people-section{padding:4.5rem 1.25rem}.people-copy h2{font-size:2.9rem}.people-gallery{grid-template-columns:1fr 1fr;grid-template-rows:340px 190px;gap:.65rem;min-height:0}.people-photo-tall{grid-column:1/-1;grid-row:auto}.people-photo-tall img{object-position:center 42%}.people-photo:nth-child(2),.people-photo:nth-child(3){min-height:190px}}
+@media(max-width:420px){.people-gallery{grid-template-columns:1fr;grid-template-rows:330px 200px 200px}.people-photo-tall{grid-column:auto}}
