@@ -11,7 +11,8 @@ Open `index.html` directly, or serve the folder with any static web server.
 - `index.html` — page content and structure
 - `styles.css` — responsive design system and layouts
 - `script.js` — mobile navigation and current year
-- `assets/london-hero.jpg` — hero image
+- `Untitled design.mp4` — hero background video
+- `assets/london-hero.jpg` — London image asset
 
 ## Before production launch
 
