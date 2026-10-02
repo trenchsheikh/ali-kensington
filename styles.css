@@ -97,3 +97,12 @@
 .footer-brand{display:block}
 @media(max-width:1250px){.header-cta{display:none}}
 @media(max-width:760px){.site-footer{grid-template-columns:1fr 1fr}.footer-brand,.footer-regulatory,.site-footer .copyright{grid-column:1/-1}.footer-brand{display:block;margin-bottom:1rem}.footer-regulatory{display:flex;margin-top:1rem}.site-footer .copyright{grid-column:1/-1}}
+
+/* Official SRA digital badge - authorised 275px by 163px size */
+.sra-badge{width:275px;max-width:275px;max-height:163px;overflow:hidden}
+.sra-badge-ratio{position:relative;width:275px;height:163px;overflow:hidden}
+.sra-badge iframe{position:absolute;inset:0;width:275px;height:163px;border:0;margin:0;padding:0;background:transparent}
+.hero-sra-badge{position:absolute;z-index:2;right:clamp(1.5rem,5vw,5rem);bottom:2rem}
+.footer-sra-badge{grid-column:4;justify-self:end;margin-top:1rem}
+@media(max-width:1050px){.footer-sra-badge{grid-column:1/-1;justify-self:end}}
+@media(max-width:760px){.hero-sra-badge{right:1.25rem;top:1.25rem;bottom:auto}.footer-sra-badge{grid-column:1/-1;justify-self:end;margin-top:.5rem}}
