@@ -78,3 +78,22 @@
 
 @media(max-width:760px){.hero{min-height:calc(100svh - 76px);justify-content:flex-end;align-items:stretch}.hero-video{object-position:center}.hero-shade{background:linear-gradient(0deg,rgba(20,7,11,.94) 0%,rgba(32,10,15,.68) 55%,rgba(16,6,9,.28) 100%)}.hero-copy{justify-content:flex-end;padding:5rem 1.25rem 3.5rem}.hero h1{font-size:clamp(3rem,14vw,4.5rem)}}
 @media(prefers-reduced-motion:reduce){.hero-media{display:none}}
+
+/* Regulatory footer */
+.site-footer{grid-template-columns:minmax(220px,1.25fr) repeat(2,minmax(130px,.55fr)) minmax(260px,1fr);align-items:start;background:#211b1d;color:#fff}
+.site-footer .wordmark{color:#fff}
+.footer-brand p,.footer-regulatory p{color:rgba(255,255,255,.68);font-size:.84rem;line-height:1.65}
+.footer-brand p{max-width:300px}
+.footer-links{display:flex;flex-direction:column;gap:.6rem}
+.footer-links p{margin:0 0 .35rem;text-transform:uppercase;letter-spacing:.2em;font-size:.68rem;color:rgba(255,255,255,.48)}
+.site-footer .footer-links a,.footer-regulatory a{font-size:.86rem;color:#fff;text-decoration:none}
+.site-footer .footer-links a:hover,.footer-regulatory a:hover{color:#e8b7bf}
+.footer-regulatory{display:flex;flex-direction:column;align-items:flex-start}
+.footer-regulatory p{margin:0 0 .5rem}
+.footer-regulatory address{font-style:normal;color:rgba(255,255,255,.68);font-size:.84rem;margin:.35rem 0 .5rem}
+.footer-regulatory a+a{margin-top:.25rem}
+.site-footer .copyright{color:rgba(255,255,255,.5);border-top-color:rgba(255,255,255,.15)}
+@media(max-width:1050px){.site-footer{grid-template-columns:1.2fr repeat(2,.7fr)}.footer-regulatory{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.15);padding-top:1.5rem}.site-footer>p:not(.copyright){display:block}}
+.footer-brand{display:block}
+@media(max-width:1250px){.header-cta{display:none}}
+@media(max-width:760px){.site-footer{grid-template-columns:1fr 1fr}.footer-brand,.footer-regulatory,.site-footer .copyright{grid-column:1/-1}.footer-brand{display:block;margin-bottom:1rem}.footer-regulatory{display:flex;margin-top:1rem}.site-footer .copyright{grid-column:1/-1}}
