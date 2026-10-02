@@ -16,6 +16,77 @@ nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () =>
 
 document.querySelector('[data-year]').textContent = new Date().getFullYear();
 
+const heroVideos = [...document.querySelectorAll('[data-hero-video]')];
+
+if (heroVideos.length === 2) {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const fadeDuration = 1200;
+  const fadeBeforeEnd = 2.2;
+  let activeVideo = 0;
+  let isTransitioning = false;
+  let transitionTimer;
+
+  heroVideos.forEach((video) => {
+    video.muted = true;
+    video.defaultMuted = true;
+  });
+
+  const playActiveVideo = () => {
+    if (!reduceMotion.matches) heroVideos[activeVideo].play().catch(() => {});
+  };
+
+  const crossfade = () => {
+    if (isTransitioning || reduceMotion.matches) return;
+
+    const current = heroVideos[activeVideo];
+    const nextIndex = activeVideo === 0 ? 1 : 0;
+    const next = heroVideos[nextIndex];
+    isTransitioning = true;
+    next.currentTime = 0;
+
+    next.play().then(() => {
+      next.classList.add('is-active');
+      current.classList.remove('is-active');
+
+      transitionTimer = window.setTimeout(() => {
+        current.pause();
+        current.currentTime = 0;
+        activeVideo = nextIndex;
+        isTransitioning = false;
+      }, fadeDuration);
+    }).catch(() => {
+      isTransitioning = false;
+    });
+  };
+
+  heroVideos.forEach((video, index) => {
+    video.addEventListener('timeupdate', () => {
+      if (index !== activeVideo || !Number.isFinite(video.duration)) return;
+      if (video.currentTime >= video.duration - fadeBeforeEnd) crossfade();
+    });
+
+    video.addEventListener('ended', () => {
+      if (index === activeVideo && !isTransitioning) {
+        video.currentTime = 0;
+        playActiveVideo();
+      }
+    });
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) return;
+    playActiveVideo();
+  });
+
+  reduceMotion.addEventListener('change', () => {
+    window.clearTimeout(transitionTimer);
+    heroVideos.forEach((video) => video.pause());
+    if (!reduceMotion.matches) playActiveVideo();
+  });
+
+  playActiveVideo();
+}
+
 const carousel = document.querySelector('[data-review-carousel]');
 
 if (carousel) {
