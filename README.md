@@ -12,7 +12,7 @@ Open `index.html` directly, or serve the folder with any static web server.
 - `styles.css` — responsive design system and layouts
 - `script.js` — mobile navigation and current year
 - `Untitled design.mp4` — hero background video
-- `assets/london-hero.jpg` — hero fallback image and video poster
+- `assets/london-hero.jpg` — London image asset
 
 ## Before production launch
 

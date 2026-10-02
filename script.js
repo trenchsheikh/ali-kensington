@@ -21,7 +21,7 @@ const heroVideos = [...document.querySelectorAll('[data-hero-video]')];
 if (heroVideos.length === 2) {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const fadeDuration = 1200;
-  const fadeBeforeEnd = 2.2;
+  const fadeBeforeEnd = 2.4;
   let activeVideo = 0;
   let isTransitioning = false;
   let transitionTimer;
@@ -29,6 +29,11 @@ if (heroVideos.length === 2) {
   heroVideos.forEach((video) => {
     video.muted = true;
     video.defaultMuted = true;
+    video.volume = 0;
+    video.addEventListener('volumechange', () => {
+      if (!video.muted) video.muted = true;
+      if (video.volume !== 0) video.volume = 0;
+    });
   });
 
   const playActiveVideo = () => {
@@ -71,6 +76,11 @@ if (heroVideos.length === 2) {
         playActiveVideo();
       }
     });
+
+    video.addEventListener('pause', () => {
+      if (index !== activeVideo || isTransitioning || document.hidden || reduceMotion.matches) return;
+      window.requestAnimationFrame(playActiveVideo);
+    });
   });
 
   document.addEventListener('visibilitychange', () => {
@@ -82,6 +92,10 @@ if (heroVideos.length === 2) {
     window.clearTimeout(transitionTimer);
     heroVideos.forEach((video) => video.pause());
     if (!reduceMotion.matches) playActiveVideo();
+  });
+
+  ['pointerdown', 'keydown', 'touchstart'].forEach((eventName) => {
+    document.addEventListener(eventName, playActiveVideo, { once: true, passive: true });
   });
 
   playActiveVideo();
